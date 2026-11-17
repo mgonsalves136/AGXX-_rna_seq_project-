@@ -1,0 +1,8 @@
+#!/bin/bash
+
+##things for git to ignore
+
+*.fastq
+*.fastq.gz
+
+*.bam
