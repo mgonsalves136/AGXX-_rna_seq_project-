@@ -4,26 +4,33 @@ output: html_document
 date: "2026-11-17"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## AGXX rna seq project report
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## Downloading the fastq files
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{bash, eval=FALSE}
+##Creating a raw_data directory to store downloaded fastq files. 
 
-```{r cars}
-summary(cars)
+##mkdir raw_data
+##nano fastq.txt
+cat ../data/raw_data/fastq.txt
+##wget -i ../data/raw_data/fastq.txt
 ```
 
-## Including Plots
+##Quality control 
 
-You can also embed plots, for example:
+```{bash, eval=FALSE}
+##FastQC
+cd ../../results/ 
+mkdir fastqc_results
+##srun -p msc_appbio --time=03:00:00 --pty /bin/bash
+##module load fastqc/0.12.1
+##fastqc ../data/raw_data/*.fastq.gz -o fastqc/ --threads 4
 
-```{r pressure, echo=FALSE}
-plot(pressure)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+
